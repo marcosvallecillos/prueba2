@@ -20,18 +20,3 @@ Madrid Abril 2022 560
 Madrid Mayo 2022 500
 Madrid Junio 2022 390
 Madrid Julio 2022 350
-
-
-#!/bin/bash
-echo "Por favor, ingrese una ciudad:"
-read ciudad
-
-total_consumo=0
-ciudad=$(awk -v ciudad="$ciudad" '$1 == ciudad {print}' consumos.txt)
-consumo=$(awk '{print $4}' consumos.txt)
-
-if [ -n "$ciudad" ]; then
-   suma_consumo=$((consumo + total_consumo))
-else
-    echo "No se encontraron esta $ciudad."
-fi
